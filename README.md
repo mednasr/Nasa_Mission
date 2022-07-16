@@ -74,7 +74,7 @@
    - sudo yum install git
    - create gitlab ssh key to be able to clone your project 
    - Now we need to clone the API repository into your home directory 
-   - git clone git@gitlab.com:mohamed.nasr/mars-news.git
+   - git clone git@gitlab.com:mohamed.nasr/nasa-news.git
 
    - Using pip, install virtualenv
    - sudo pip install virtualenv
@@ -154,9 +154,11 @@
  
  - #### Final Results
    - Test the website by visiting : http://52.55.160.227:8000/
-
  - ### Run the project locally
  - Clone the project into your local machine 
- - 
+ - Install all dependencies ( can be found in requirements.txt and can be automated if you use an IDE like Pycharm )
+ - Run : 
+   - python app.py 
+ - the app should be running, and you can check it by navigating to : http://127.0.0.1:5000/
 
 
