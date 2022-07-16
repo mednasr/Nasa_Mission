@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NASA Missions</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>NASA Featured products</h1>
+        <!-- <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>-->
+             <p><a class="btn btn-primary btn-lg" href="/save" role="button">Save csv Data</a></p>
+    </div>
+         <hr>
+        <br>
+   <!-- jQuery search field -->
+   <input type="text" class="live-search-box" placeholder="search here" style=" margin: auto; display: block;"/>
+      <hr>
+        <br>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Render our data from the nasa website -->
+       {% for i in range(0,nasa.discoveries|length) %}
+            <div class="col-md-3 {{nasa.discoveries[i]['product_title']}}" style="    max-width: 278px;">
+            <img width="270 px" height="270 px" src="https://www.nasa.gov{{nasa.discoveries[i]['product_src']}}">
+              <h4>{{nasa.discoveries[i]['product_title']}}</h4>
+              <p> {{nasa.discoveries[i]['product_desc']}}</p>
+          </div>
+
+       {% endfor %}
+        <!-- Render our data from the hemisphere website -->
+         {% for i in range(0,nasa.hemisphere_products|length) %}
+          <div class="col-md-3 {{nasa.hemisphere_products[i]['title']}}">
+            <img width="270 px" height="270 px" src="{{nasa.hemisphere_products[i]['imgurl']}}">
+              <h4> {{nasa.hemisphere_products[i]['title']}}</h4>
+              <p> {{nasa.hemisphere_products[i]['desc']}}</p>
+          </div>
+         {% endfor %}
+      </div>
+
+
+      <div class="col-md-4">
+        <br>
+        <h4>nasa Facts</h4>
+        <!-- Render the html table -->
+        {{nasa.html_table | safe}}
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+
+$('.col-md-3').each(function(){
+$(this).attr('data-search-term', $(this).text().toLowerCase());
+});
+
+$('.live-search-box').on('keyup', function(){
+
+var searchTerm = $(this).val().toLowerCase();
+
+    $('.col-md-3').each(function(){
+
+        if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+
+    });
+
+});
+});
+</script>
+
+</body>
+
+</html>
