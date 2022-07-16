@@ -156,9 +156,20 @@
    - Test the website by visiting : http://52.55.160.227:8000/
  - ### Run the project locally
  - Clone the project into your local machine 
- - Install all dependencies ( can be found in requirements.txt and can be automated if you use an IDE like Pycharm )
+ - Install all dependencies ( can be found in requirements.txt and can be automated if you use an IDE like Pycharm ) or you can di ti manually by running :
+   - pip install flask
+   - pip install flask_pymongo
+   - pip install splinter
+   - pip install urllib3
+   - pip install bs4
+   - pip install webdriver_manager
+   - pip install pandas
+   - pip install dnspython
  - Run : 
    - python app.py 
  - the app should be running, and you can check it by navigating to : http://127.0.0.1:5000/
-
+ - PS : if you had any error just run :
+   - pip uninstall bson
+   - pip uninstall pymongo
+   - pip install pymongo
 

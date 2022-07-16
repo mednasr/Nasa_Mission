@@ -1,15 +1,10 @@
 flask
 boto3
 flask-cors
-flask
-boto3
-flask-cors
-splinter
 chromedriver
 dnspython
 beautifulsoup4
 pandas
-dnspython
 selenium
 dump
 python-bsonjs
@@ -19,5 +14,4 @@ python-csv
 requests
 Flask-PyMongo
 pymongo
-bson
 urllib3
